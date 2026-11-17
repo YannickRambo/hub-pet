@@ -7,14 +7,14 @@ export default function Login() {
     return (
         <main className={Styles.login}>
             <form className={Styles.loginForm}>
-                <h1>HubPet - Login</h1>
+                <h1>HubPet</h1>
                 <div className={Styles.loginInput}>
-                    <h3>Usuário</h3>
-                    <input type="text" name="" id="" />
+                    <label htmlFor="">Usuário</label>
+                    <input type="text" name="" id="" placeholder="Seu nome completo"/>
                 </div>
                 <div className={Styles.loginInput}>
-                    <h3>Senha</h3>
-                    <input type="text" name="" id="" />
+                    <label htmlFor="">Senha</label>
+                    <input type="password" name="" id=""/>
                 </div>
                 <div className={Styles.loginButton}>
                     <button onClick={() => navigate("/hub-pet")}>Entrar</button>

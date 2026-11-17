@@ -1,0 +1,112 @@
+.page {
+  padding: 2rem 1rem;
+  padding-top: 6rem; /* Garante espaço suficiente no topo para não ficar debaixo da barra do HubPet */
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.headerCenter {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.headerCenter h1 {
+  margin: 0 0 0.5rem 0;
+  color: #0f172a;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.headerCenter p {
+  margin: 0;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 3rem;
+}
+
+.backButton {
+  min-width: 90px;
+  min-height: 38px;
+  padding: 0.5em 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5em;
+  background-color: #fff;
+  color: #334155;
+  font: inherit;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #f1f5f9;
+}
+
+.searchContainer {
+  margin-bottom: 2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  background-color: #fff;
+  color: #333;
+}
+
+.searchInput:focus {
+  border-color: #3f6212;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.th {
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 600;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.emptyText {
+  text-align: center;
+  color: #64748b;
+  margin: 3rem 0;
+  font-size: 1.1rem;
+}

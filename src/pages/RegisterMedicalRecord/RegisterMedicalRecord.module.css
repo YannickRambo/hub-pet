@@ -1,0 +1,168 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f7fb;
+    padding-top: 8em;
+    padding-bottom: 2em;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.heading {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.heading h1 {
+    margin: 0 0 0.5em;
+    color: #0f172a;
+    font-size: 1.8em;
+}
+
+.heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.form {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.recordContent {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    gap: 2em;
+    padding: 2em;
+}
+
+.textFields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    min-width: 0;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.field label {
+    color: #334155;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.field textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 0.875em;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #FFF;
+    color: #0f172a;
+    font: inherit;
+    font-size: 1em;
+    line-height: 1.5;
+    resize: vertical;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.field textarea::placeholder {
+    color: #94a3b8;
+}
+
+.field textarea:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5em;
+    padding-left: 1.5em;
+    border-left: 1px solid #e2e8f0;
+}
+
+.options h2 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.checkboxOption {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    color: #334155;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.checkboxOption input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #78966B;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1.25em 2em;
+    border-top: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+}
+
+.printButton,
+.saveButton {
+    min-width: 120px;
+    min-height: 42px;
+    padding: 0.75em 1.25em;
+    border: 1px solid transparent;
+    border-radius: .5em;
+    font: inherit;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.printButton {
+    border-color: #cbd5e1;
+    background-color: #FFF;
+    color: #334155;
+}
+
+.printButton:hover {
+    background-color: #f1f5f9;
+}
+
+.saveButton {
+    background-color: #78966B;
+    color: #FFF;
+}
+
+.saveButton:hover {
+    background-color: #496344;
+}

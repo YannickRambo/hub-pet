@@ -1,0 +1,84 @@
+.login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E8F0E4;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    gap: 1em;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.login-form h1 {
+    text-align: center;
+    color: #496344;
+}
+
+.login-input {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.login-input input {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #cbd5e1;
+    border-radius: .5em;
+    background-color: #FFF;
+    color: #0f172a;
+    font-size: 1em;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-input input:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.login-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+}
+
+.login-button button {
+    padding: 0.75em 1.25em;
+    border: 1px solid transparent;
+    border-radius: .5em;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    background-color: #78966B;
+    color: #FFF;
+}
+
+.login-button button:hover {
+    background-color: #496344;
+}
+
+.login-button a {
+    color: #496344;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-button a:hover {
+    text-decoration: underline;
+}

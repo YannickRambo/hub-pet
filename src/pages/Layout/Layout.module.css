@@ -1,0 +1,16 @@
+.layout-header {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    padding: 1em 2em;
+    background-color: #E8F0E4;
+}
+
+.layout-header h2 {
+    color: #496344;
+}

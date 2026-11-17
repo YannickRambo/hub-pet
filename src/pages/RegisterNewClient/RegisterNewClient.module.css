@@ -1,0 +1,140 @@
+.page {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f7fb;
+    padding-top: 8em;
+    padding-bottom: 2em;
+}
+
+.formContainer {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.pageHeading {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.pageHeading h1 {
+    margin: 0 0 .5em;
+    color: #0f172a;
+    font-size: 2em;
+}
+
+.pageHeading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 1em;
+}
+
+.form {
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.formSections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    padding: 2em;
+}
+
+.formSection h2 {
+    margin: 0 0 0.25em;
+    font-size: 1.5em;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.field label {
+    color: #334155;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #cbd5e1;
+    border-radius: .5em;
+    background-color: #FFF;
+    color: #0f172a;
+    font: inherit;
+    font-size: 1em;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.field input::placeholder {
+    color: #94a3b8;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    padding: 1.25em 2em;
+    border-top: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+}
+
+.cancelButton,
+.submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75em 1.25em;
+    border: 1px solid transparent;
+    border-radius: .5em;
+    font: inherit;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.cancelButton {
+    border-color: #cbd5e1;
+    background-color: #FFF;
+    color: #334155;
+}
+
+.cancelButton:hover {
+    background-color: #f1f5f9;
+}
+
+.submitButton {
+    background-color: #78966B;
+    color: #FFF;
+}
+
+.submitButton:hover {
+    background-color: #496344;
+}

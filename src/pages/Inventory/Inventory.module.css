@@ -1,0 +1,149 @@
+.page {
+    display: flex;
+    justify-content: center;
+    background-color: #f5f7fb;
+    padding-top: 8em;
+    padding-bottom: 2em;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.heading {
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.heading h1 {
+    margin: 0 0 .5em;
+    color: #0f172a;
+    font-size: 2em;
+}
+
+.heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.inventoryPanel {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5em;
+    padding: 1.5em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    min-width: 0;
+}
+
+.field label {
+    color: #334155;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.75em;
+    border: 1px solid #cbd5e1;
+    border-radius: .5em;
+    background-color: #FFF;
+    color: #0f172a;
+    font: inherit;
+    font-size: 1em;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 1.5em;
+}
+
+.tableHeader h2 {
+    margin: 0;
+    color: #172554;
+    font-size: 1em;
+}
+
+.resultCount {
+    color: #64748b;
+    font-size: 1em;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 1em 1.5em;
+    border-top: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.table td {
+    color: #334155;
+    font-size: 0.9em;
+}
+
+.table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.quantity,
+.lowStock {
+    display: inline-block;
+    min-width: 2em;
+    text-align: center;
+    font-weight: 600;
+}
+
+.quantity {
+    color: #334155;
+}
+
+.lowStock {
+    color: #dc2626;
+}

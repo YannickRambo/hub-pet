@@ -6,5 +6,5 @@ export const navigationLinks = [
     { label: "Vendas", to: "/vendas" },
     { label: "Estoque", to: "/hub-pet/estoque" },
     { label: "Prontuário", to: "/hub-pet/prontuario" },
+    { label: "Consulta Clientes", to: "/hub-pet/clientes/consultar" },
 ];
-

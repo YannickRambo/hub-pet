@@ -1,168 +1,241 @@
 .page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f7fb;
-    padding-top: 8em;
-    padding-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7fb;
+  padding: 2em 1rem;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.backButton {
+  min-width: 120px;
+  min-height: 42px;
+  padding: 0.75em 1.25em;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5em;
+  background-color: #64748b;
+  color: #fff;
+  font: inherit;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #475569;
 }
 
 .container {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  box-sizing: border-box;
 }
 
 .heading {
-    margin-bottom: 1.5em;
-    text-align: center;
+  margin-bottom: 1.5em;
+  text-align: center;
 }
 
 .heading h1 {
-    margin: 0 0 0.5em;
-    color: #0f172a;
-    font-size: 1.8em;
+  margin: 0 0 0.5em;
+  color: #0f172a;
+  font-size: 1.8em;
 }
 
 .heading p {
-    margin: 0;
-    color: #64748b;
-    font-size: 0.95em;
-    line-height: 1.5;
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95em;
+  line-height: 1.5;
 }
 
 .form {
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    background-color: #FFF;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .recordContent {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 170px;
-    gap: 2em;
-    padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 1 coluna no celular */
+  gap: 2em;
+  padding: 1.5em;
+  box-sizing: border-box;
 }
 
 .textFields {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  min-width: 0;
 }
 
 .field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
 }
 
 .field label {
-    color: #334155;
-    font-size: 1em;
-    font-weight: 600;
+  color: #334155;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .field textarea {
-    width: 100%;
-    min-height: 110px;
-    padding: 0.875em;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    background-color: #FFF;
-    color: #0f172a;
-    font: inherit;
-    font-size: 1em;
-    line-height: 1.5;
-    resize: vertical;
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+  width: 100%;
+  min-height: 110px;
+  padding: 0.875em;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #0f172a;
+  font: inherit;
+  font-size: 1em;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .field textarea::placeholder {
-    color: #94a3b8;
+  color: #94a3b8;
 }
 
 .field textarea:focus {
-    outline: none;
-    border-color: #78966B;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+  outline: none;
+  border-color: #78966b;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .options {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.5em;
-    padding-left: 1.5em;
-    border-left: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5em;
+  padding-top: 1em;
+  border-top: 1px solid #e2e8f0;
 }
 
 .options h2 {
-    margin: 0;
-    font-size: 1em;
+  margin: 0;
+  font-size: 1em;
 }
 
 .checkboxOption {
-    display: flex;
-    align-items: center;
-    gap: .5em;
-    color: #334155;
-    font-size: 1em;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: #334155;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .checkboxOption input {
-    width: 18px;
-    height: 18px;
-    margin: 0;
-    accent-color: #78966B;
-    cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #78966b;
+  cursor: pointer;
 }
 
 .actions {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    padding: 1.25em 2em;
-    border-top: 1px solid #e2e8f0;
-    background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1.25em 2em;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  box-sizing: border-box;
 }
 
 .printButton,
 .saveButton {
-    min-width: 120px;
-    min-height: 42px;
-    padding: 0.75em 1.25em;
-    border: 1px solid transparent;
-    border-radius: .5em;
-    font: inherit;
-    font-size: 0.9em;
-    font-weight: 600;
-    cursor: pointer;
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease;
+  min-width: 120px;
+  min-height: 42px;
+  padding: 0.75em 1.25em;
+  border: 1px solid transparent;
+  border-radius: 0.5em;
+  font: inherit;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .printButton {
-    border-color: #cbd5e1;
-    background-color: #FFF;
-    color: #334155;
+  border-color: #cbd5e1;
+  background-color: #fff;
+  color: #334155;
 }
 
 .printButton:hover {
-    background-color: #f1f5f9;
+  background-color: #f1f5f9;
 }
 
 .saveButton {
-    background-color: #78966B;
-    color: #FFF;
+  background-color: #78966b;
+  color: #fff;
 }
 
 .saveButton:hover {
-    background-color: #496344;
+  background-color: #496344;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding-top: 8em;
+    padding-bottom: 2em;
+  }
+
+  .recordContent {
+    grid-template-columns: minmax(0, 1fr) 170px;
+    padding: 2em;
+  }
+
+  .options {
+    padding-top: 0;
+    padding-left: 1.5em;
+    border-top: none;
+    border-left: 1px solid #e2e8f0;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .container,
+  .container * {
+    visibility: visible;
+  }
+
+  .container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .actions {
+    display: none !important;
+  }
 }

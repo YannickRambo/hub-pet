@@ -8,25 +8,6 @@
   min-height: 100vh;
 }
 
-.backButton {
-  min-width: 120px;
-  min-height: 42px;
-  padding: 0.75em 1.25em;
-  border: 1px solid #cbd5e1;
-  border-radius: 0.5em;
-  background-color: #64748b;
-  color: #fff;
-  font: inherit;
-  font-size: 0.9em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.backButton:hover {
-  background-color: #475569;
-}
-
 .container {
   width: 100%;
   max-width: 1000px;
@@ -162,7 +143,8 @@
 }
 
 .printButton,
-.saveButton {
+.saveButton,
+.backButton {
   min-width: 120px;
   min-height: 42px;
   padding: 0.75em 1.25em;
@@ -177,13 +159,15 @@
     border-color 0.2s ease;
 }
 
-.printButton {
+.printButton,
+.backButton {
   border-color: #cbd5e1;
   background-color: #fff;
   color: #334155;
 }
 
-.printButton:hover {
+.printButton:hover,
+.backButton:hover {
   background-color: #f1f5f9;
 }
 

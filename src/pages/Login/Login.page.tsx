@@ -1,6 +1,7 @@
 import Styles from "./Login.module.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../context/AuthContext.context";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -9,9 +10,11 @@ export default function Login() {
 
   const navigate = useNavigate();
 
+  const { login } = useAuth();
+
   function handleLogin(event: React.FormEvent) {
     event.preventDefault();
-    setErro(""); 
+    setErro("");
 
     if (!email.trim() || !password.trim()) {
       setErro("Por favor, preencha o usuário e a senha.");
@@ -23,6 +26,8 @@ export default function Login() {
 
     if (email === USUARIO_PADRAO && password === SENHA_PADRAO) {
       localStorage.setItem("@HubPet:userLogged", JSON.stringify({ email }));
+
+      login(email, password, "Atendente");
 
       navigate("/hub-pet");
     } else {

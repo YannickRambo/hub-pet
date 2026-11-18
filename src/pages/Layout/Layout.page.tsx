@@ -1,12 +1,15 @@
 import Styles from "./Layout.module.css";
 import { navigationLinks } from "../../utils/navigation-links";
 import { NavLink, Outlet } from "react-router";
+import { useAuth } from "../../context/AuthContext.context";
 
 export default function Layout() {
+    const { user } = useAuth();
+
     return (
         <div className={Styles.layout}>
             <header className={Styles.layoutHeader}>
-                <h2>HubPet</h2>
+                <h2>{user.type}</h2>
             </header>
             <aside className={Styles.sidebar}>
                 <nav className={Styles.navigation}>

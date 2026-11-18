@@ -34,19 +34,16 @@ export default function RegisterMedicalRecord() {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
-    // 1. Pega os prontuários já salvos no localStorage (ou lista vazia)
     const prontuariosSalvos = JSON.parse(
       localStorage.getItem("@HubPet:prontuarios") || "[]",
     );
 
-    // 2. Cria o objeto do novo prontuário com ID único e data atual
     const novoProntuario = {
       id: Date.now(),
       dataRegistro: new Date().toLocaleDateString("pt-BR"),
       ...form,
     };
 
-    // 3. Adiciona na lista e salva de volta no localStorage
     const listaAtualizada = [...prontuariosSalvos, novoProntuario];
     localStorage.setItem(
       "@HubPet:prontuarios",

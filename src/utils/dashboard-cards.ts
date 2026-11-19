@@ -5,8 +5,8 @@ export const dashboardCards = [
     to: "/hub-pet/clientes/novo",
   },
   {
-    title: "Consultar Cliente",
-    description: "Consulte um novo cliente",
+    title: "Consultar Clientes",
+    description: "Consulte os clientes cadastrados",
     to: "/hub-pet/clientes/consultar",
   },
   {
@@ -15,9 +15,9 @@ export const dashboardCards = [
     to: "/hub-pet/agendamento",
   },
   {
-    title: "Registrar Venda",
-    description: "Registre uma nova venda",
-    to: "/vendas/nova",
+    title: "Cadastrar Venda",
+    description: "Adicione uma nova venda",
+    to: "/hub-pet/vendas/nova",
   },
   {
     title: "Ver Estoque",
@@ -26,7 +26,7 @@ export const dashboardCards = [
   },
   {
     title: "Prontuário Médico",
-    description: "Registrar prontuário médico",
+    description: "Registre o prontuário médico",
     to: "/hub-pet/prontuario",
   },
 ];

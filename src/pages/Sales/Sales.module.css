@@ -1,0 +1,94 @@
+
+.sales {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 2em;
+    color: #334155;
+}
+
+.sales h1 {
+    color: #496344;
+    margin-bottom: 1.5em;
+}
+
+.salesFilters {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5em;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    background-color: #FFF;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    min-width: 0;
+}
+
+.filterGroup label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.filterGroup input,
+.filterGroup select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: .75em;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background-color: #FFF;
+    color: #0f172a;
+    font-size: 1em;
+}
+
+.filterGroup input:focus,
+.filterGroup select:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.salesTableContainer {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #FFF;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.salesTableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.salesTableContainer th,
+.salesTableContainer td {
+    padding: 1em 1.5em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.salesTableContainer th {
+    background-color: #E8F0E4;
+    color: #496344;
+    font-weight: 600;
+}
+
+.salesTableContainer tbody tr:hover {
+    background-color: #f8faf7;
+}
+
+.emptyMessage {
+    text-align: center;
+    color: #64748b;
+    padding: 2em;
+}

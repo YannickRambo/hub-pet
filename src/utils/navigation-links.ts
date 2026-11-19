@@ -1,10 +1,11 @@
 export const navigationLinks = [
     { label: "Início", to: "/", end: true },
     { label: "Dashboard", to: "/hub-pet", end: true },
-    { label: "Clientes", to: "/hub-pet/clientes/novo" },
+    { label: "Cadastrar Clientes", to: "/hub-pet/clientes/novo" },
+    { label: "Consultar Clientes", to: "/hub-pet/clientes/consultar" },
     { label: "Agenda", to: "/hub-pet/agendamento" },
-    { label: "Vendas", to: "/vendas" },
+    { label: "Cadastrar Vendas", to: "/hub-pet/vendas/nova" },
+    { label: "Consultar Vendas", to: "/hub-pet/vendas" },
     { label: "Estoque", to: "/hub-pet/estoque" },
     { label: "Prontuário", to: "/hub-pet/prontuario" },
-    { label: "Consulta Clientes", to: "/hub-pet/clientes/consultar" },
 ];

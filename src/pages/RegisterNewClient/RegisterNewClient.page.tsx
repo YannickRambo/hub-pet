@@ -1,11 +1,10 @@
+import Styles from "./RegisterNewClient.module.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import Styles from "./RegisterNewClient.module.css";
 
 export default function RegisterNewClient() {
   const navigate = useNavigate();
 
-  // Estados para armazenar os valores de cada input do formulário
   const [nomeCliente, setNomeCliente] = useState("");
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
@@ -19,9 +18,8 @@ export default function RegisterNewClient() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 1. Cria o objeto com os dados preenchidos
     const novoCadastro = {
-      id: Date.now(), // ID único baseado no timestamp atual
+      id: Date.now(),
       cliente: {
         nome: nomeCliente,
         telefone,
@@ -36,12 +34,10 @@ export default function RegisterNewClient() {
       },
     };
 
-    // 2. Busca os cadastros anteriores do localStorage (ou inicia uma lista vazia)
     const cadastrosSalvos = JSON.parse(
       localStorage.getItem("@HubPet:clientesPets") || "[]",
     );
 
-    // 3. Adiciona o novo cadastro na lista e salva de volta
     const listaAtualizada = [...cadastrosSalvos, novoCadastro];
     localStorage.setItem(
       "@HubPet:clientesPets",
@@ -50,8 +46,7 @@ export default function RegisterNewClient() {
 
     alert("Cliente e Pet cadastrados com sucesso!");
 
-    // 4. Redireciona para o dashboard ou para uma página de listagem
-    navigate("/hub-pet"); // Altere para a rota correta do seu dashboard/listagem
+    navigate("/hub-pet");
   };
 
   return (

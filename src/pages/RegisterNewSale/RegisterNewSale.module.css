@@ -1,0 +1,165 @@
+.registerSale {
+    width: 100%;
+    padding: 2em;
+    color: #334155;
+}
+
+.registerSale h1 {
+    color: #496344;
+    margin-bottom: 1.5em;
+}
+
+.saleSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    background-color: #FFF;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .05);
+}
+
+.saleSection h2 {
+    margin: 0;
+    color: #496344;
+    font-size: 1.2em;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    min-width: 0;
+}
+
+.formGroup label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.formGroup input,
+.formGroup select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: .75em;
+    border: 1px solid #cbd5e1;
+    border-radius: 1em;
+    background-color: #FFF;
+    color: #0f172a;
+    font-size: 1em;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .3);
+}
+
+.productForm {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(100px, 1fr) auto;
+    align-items: end;
+    gap: 1em;
+}
+
+.productForm button,
+.saleActions button {
+    padding: .75em 1.25em;
+    border: none;
+    border-radius: .5em;
+    background-color: #78966B;
+    color: #FFF;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.productForm button:hover,
+.saleActions button:hover {
+    background-color: #496344;
+}
+
+.productForm button:disabled,
+.saleActions button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tableContainer th,
+.tableContainer td {
+    padding: 1em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tableContainer th {
+    background-color: #E8F0E4;
+    color: #496344;
+    font-weight: 600;
+}
+
+.tableContainer tbody tr:hover {
+    background-color: #f8faf7;
+}
+
+.removeButton {
+    padding: .5em .75em;
+    border: none;
+    border-radius: .4em;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    cursor: pointer;
+}
+
+.removeButton:hover {
+    background-color: #fecaca;
+}
+
+.saleTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    border-top: 1px solid #e2e8f0;
+}
+
+.saleTotal span {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.saleTotal strong {
+    color: #496344;
+    font-size: 1.5em;
+}
+
+.saleActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+
+.saleActions .cancelButton {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+.saleActions .cancelButton:hover {
+    background-color: #cbd5e1;
+}

@@ -8,6 +8,8 @@ import RegisterMedicalRecord from "./pages/RegisterMedicalRecord/RegisterMedical
 import Inventory from "./pages/Inventory/Inventory.page";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.page";
 import ConsultClients from "./pages/ConsultClients/ConsultClients.page";
+import RegisterNewSale from "./pages/RegisterNewSale/RegisterNewSale.page";
+import Sales from "./pages/Sales/Sales.page";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
         path: "/hub-pet/estoque",
         Component: Inventory,
       },
+      {
+        path: "/hub-pet/vendas/nova",
+        Component: RegisterNewSale
+      },
+      {
+        path: "/hub-pet/vendas",
+        Component: Sales
+      }
     ],
   },
 ]);

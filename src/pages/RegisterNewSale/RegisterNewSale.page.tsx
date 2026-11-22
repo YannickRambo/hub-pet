@@ -1,6 +1,6 @@
 import Styles from "./RegisterNewSale.module.css";
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { getClientes, getProdutos, type Produto } from "../../utils/storage";
 
 interface SaleItem extends Produto {
@@ -8,7 +8,6 @@ interface SaleItem extends Produto {
 }
 
 export default function RegisterNewSale() {
-    // Dados lidos do armazenamento compartilhado (clientes cadastrados e produtos do estoque)
     const [clients] = useState(() => getClientes());
     const [products] = useState(() => getProdutos());
     const [clientId, setClientId] = useState("");
@@ -16,6 +15,8 @@ export default function RegisterNewSale() {
     const [quantity, setQuantity] = useState(1);
     const [paymentMethod, setPaymentMethod] = useState("");
     const [saleItems, setSaleItems] = useState<SaleItem[]>([]);
+
+    const navigate = useNavigate();
 
     const formatCurrency = (value: number) =>
         new Intl.NumberFormat("pt-BR", {
@@ -254,6 +255,15 @@ export default function RegisterNewSale() {
                 </section>
 
                 <div className={Styles.saleActions}>
+                    <button
+                        type="button"
+                        className={Styles.cancelButton}
+                        onClick={() => {
+                            navigate("/hub-pet")
+                        }}
+                    >
+                        Voltar
+                    </button>
                     <button
                         type="button"
                         className={Styles.cancelButton}

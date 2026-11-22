@@ -39,17 +39,11 @@ export default function ConsultClients() {
 
   return (
     <main className={Styles.page}>
-      {/* Cabeçalho igual ao padrão da imagem (Título centralizado e subtítulo) */}
       <div className={Styles.headerCenter}>
         <h1>Consulta de Clientes e Pets</h1>
-        <p>
-          Pesquise e visualize os clientes e animais cadastrados no sistema.
-        </p>
       </div>
 
-      {/* Card Principal Centralizado (exatamente como no modelo de Agendamento) */}
       <section className={Styles.container}>
-        {/* Cabeçalho interno com o botão de voltar */}
         <div
           style={{
             display: "flex",

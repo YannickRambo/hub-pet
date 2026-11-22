@@ -1,15 +1,29 @@
-
 .sales {
+    background-color: #f5f5f5;
+    height: 100%;
     width: 100%;
     min-width: 0;
-    box-sizing: border-box;
     padding: 2em;
+    padding-top: 8em;
     color: #334155;
 }
 
-.sales h1 {
-    color: #496344;
-    margin-bottom: 1.5em;
+.headerCenter {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.headerCenter h1 {
+    margin: 0 0 0.5rem 0;
+    color: #0f172a;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.headerCenter p {
+    margin: 0;
+    color: #64748b;
+    font-size: 1rem;
 }
 
 .salesFilters {
@@ -39,7 +53,6 @@
 .filterGroup input,
 .filterGroup select {
     width: 100%;
-    box-sizing: border-box;
     padding: .75em;
     border: 1px solid #cbd5e1;
     border-radius: 7px;
@@ -78,8 +91,8 @@
 }
 
 .salesTableContainer th {
-    background-color: #E8F0E4;
-    color: #496344;
+    background-color: #f8fafc;
+    color: #475569;
     font-weight: 600;
 }
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Styles from "./RegisterMedicalRecord.module.css";
+import { useNavigate } from "react-router";
 
 const initialForm = {
   anamnese: "",
@@ -11,6 +12,7 @@ const initialForm = {
 
 export default function RegisterMedicalRecord() {
   const [form, setForm] = useState(initialForm);
+  const navigate = useNavigate();
 
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -58,7 +60,6 @@ export default function RegisterMedicalRecord() {
       <section className={Styles.container}>
         <header className={Styles.heading}>
           <h1>Prontuário Médico</h1>
-          <p>Registre as informações clínicas do paciente.</p>
         </header>
 
         <form className={Styles.form} onSubmit={handleSubmit}>
@@ -147,7 +148,7 @@ export default function RegisterMedicalRecord() {
             <button
               type="button"
               className={Styles.backButton}
-              onClick={() => window.history.back()}
+              onClick={() => navigate("/hub-pet")}
             >
               Voltar
             </button>

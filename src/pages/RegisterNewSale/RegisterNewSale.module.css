@@ -1,11 +1,11 @@
 .registerSale {
+    background-color: #f5f5f5;
     width: 100%;
     padding: 2em;
-    color: #334155;
+    padding-top: 8em;
 }
 
 .registerSale h1 {
-    color: #496344;
     margin-bottom: 1.5em;
 }
 
@@ -42,7 +42,6 @@
 .formGroup input,
 .formGroup select {
     width: 100%;
-    box-sizing: border-box;
     padding: .75em;
     border: 1px solid #cbd5e1;
     border-radius: 1em;
@@ -108,8 +107,8 @@
 }
 
 .tableContainer th {
-    background-color: #E8F0E4;
-    color: #496344;
+    background-color: #f8fafc;
+    color: #475569;
     font-weight: 600;
 }
 
@@ -156,10 +155,11 @@
 }
 
 .saleActions .cancelButton {
-    background-color: #e2e8f0;
+    background-color: #fff;
     color: #334155;
+    border: 1px solid #cbd5e1;
 }
 
 .saleActions .cancelButton:hover {
-    background-color: #cbd5e1;
+    background-color: #f1f5f9;
 }

@@ -67,7 +67,6 @@ export default function RegisterNewService() {
       <section className={Styles.container}>
         <header className={Styles.heading}>
           <h1>Agendar Serviço</h1>
-          <p>Selecione o cliente, o pet, o serviço e a data desejada.</p>
         </header>
 
         <form className={Styles.form} onSubmit={handleSubmit}>

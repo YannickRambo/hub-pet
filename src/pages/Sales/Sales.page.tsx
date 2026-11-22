@@ -28,7 +28,12 @@ export default function Sales() {
 
     return (
         <main className={Styles.sales}>
-            <h1>Consultar Vendas</h1>
+            <div className={Styles.headerCenter}>
+                <h1>Consulta de Vendas</h1>
+                <p>
+                    Pesquise e visualize as vendas cadastradas no sistema.
+                </p>
+            </div>
 
             <section className={Styles.salesFilters}>
                 <div className={Styles.filterGroup}>

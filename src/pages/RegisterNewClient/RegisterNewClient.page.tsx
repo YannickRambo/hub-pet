@@ -192,7 +192,7 @@ export default function RegisterNewClient() {
           </div>
 
           <div className={Styles.formActions}>
-            <Link to="/" className={Styles.cancelButton}>
+            <Link to="/hub-pet" className={Styles.cancelButton}>
               Cancelar
             </Link>
 

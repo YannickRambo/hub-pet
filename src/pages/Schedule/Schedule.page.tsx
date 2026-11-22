@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Styles from "./Schedule.module.css";
 import {
   STATUS_SERVICO,
@@ -17,7 +17,6 @@ const classePorStatus: Record<StatusServico, string> = {
   Cancelado: Styles.statusCancelado,
 };
 
-// A data é salva como AAAA-MM-DD; aqui vira DD/MM/AAAA sem passar por fuso horário
 function formatarData(iso: string): string {
   const [ano, mes, dia] = iso.split("-");
   return ano && mes && dia ? `${dia}/${mes}/${ano}` : iso;
@@ -30,6 +29,8 @@ export default function Schedule() {
   const [busca, setBusca] = useState("");
   const [data, setData] = useState("");
   const [status, setStatus] = useState("Todos");
+
+  const navigate = useNavigate();
 
   function handleStatusChange(id: number, novoStatus: StatusServico) {
     updateStatusAgendamento(id, novoStatus);
@@ -59,10 +60,18 @@ export default function Schedule() {
     <main className={Styles.schedule}>
       <div className={Styles.heading}>
         <h1>Agenda de Serviços</h1>
-
-        <Link to="/hub-pet/agendamento" className={Styles.newButton}>
-          Novo agendamento
-        </Link>
+        <div className={Styles.buttonsContainer}>
+          <button
+            type="button"
+            className={Styles.backButton}
+            onClick={() => navigate("/hub-pet")}
+          >
+            Voltar
+          </button>
+          <Link to="/hub-pet/agendamento" className={Styles.newButton}>
+            Novo agendamento
+          </Link>
+        </div>
       </div>
 
       <section className={Styles.filters}>

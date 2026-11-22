@@ -25,6 +25,11 @@ export const dashboardCards = [
     to: "/hub-pet/vendas/nova",
   },
   {
+    title: "Consultar Vendas",
+    description: "Consulte as vendas registradas",
+    to: "/hub-pet/vendas",
+  },
+  {
     title: "Ver Estoque",
     description: "Consulte os produtos disponíveis",
     to: "/hub-pet/estoque",

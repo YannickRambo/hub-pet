@@ -102,10 +102,6 @@ export default function Inventory() {
         <header className={Styles.heading}>
           <div>
             <h1>Controle de Estoque</h1>
-            <p>
-              Consulte os produtos registrados e acompanhe suas quantidades
-              disponíveis.
-            </p>
           </div>
 
           <div className={Styles.headerButtons}>
@@ -127,7 +123,6 @@ export default function Inventory() {
           </div>
         </header>
 
-        {/* Formulário de Cadastro (Abre/Fecha ao clicar no botão acima) */}
         {showForm && (
           <form onSubmit={handleAddProduct} className={Styles.formCard}>
             <h3>Novo Produto</h3>

@@ -3,10 +3,12 @@ import Styles from "./Sales.module.css";
 import { useState } from "react";
 import { sales } from "../../utils/sales";
 import { paymentMethods } from "../../utils/paymentMethods";
+import { useNavigate } from "react-router";
 
 export default function Sales() {
     const [search, setSearch] = useState("");
     const [selectedPayment, setSelectedPayment] = useState("Todos");
+    const navigate = useNavigate();
 
     const formatCurrency = (value: number) =>
         new Intl.NumberFormat("pt-BR", {
@@ -16,8 +18,8 @@ export default function Sales() {
 
     const filteredSales = sales.filter((sale) => {
         const matchesSearch =
-            sale.client.toLowerCase().includes(search.toLowerCase()) ||
-            String(sale.id).includes(search);
+            sale.clientId.toLowerCase().includes(search.toLowerCase()) ||
+            sale.clientId.includes(search);
 
         const matchesPayment =
             selectedPayment === "Todos" ||
@@ -30,11 +32,10 @@ export default function Sales() {
         <main className={Styles.sales}>
             <div className={Styles.headerCenter}>
                 <h1>Consulta de Vendas</h1>
-                <p>
-                    Pesquise e visualize as vendas cadastradas no sistema.
-                </p>
             </div>
-
+            <div className={Styles.buttonContainer}>
+                <button className={Styles.backButton} onClick={() => navigate("/hub-pet")}>Voltar</button>
+            </div>
             <section className={Styles.salesFilters}>
                 <div className={Styles.filterGroup}>
                     <label htmlFor="search">Pesquisar venda</label>
@@ -70,8 +71,7 @@ export default function Sales() {
                     <thead>
                         <tr>
                             <th>Nº Venda</th>
-                            <th>Cliente</th>
-                            <th>Data</th>
+                            <th>Itens</th>
                             <th>Pagamento</th>
                             <th>Valor Total</th>
                         </tr>
@@ -80,10 +80,9 @@ export default function Sales() {
                     <tbody>
                         {filteredSales.length > 0 ? (
                             filteredSales.map((sale) => (
-                                <tr key={sale.id}>
-                                    <td>#{String(sale.id).padStart(4, "0")}</td>
-                                    <td>{sale.client}</td>
-                                    <td>{sale.date}</td>
+                                <tr key={sale.clientId}>
+                                    <td>#{sale.clientId.padStart(4, "0")}</td>
+                                    <td>{sale.items.map(item => item.name).toString()}</td>
                                     <td>{sale.paymentMethod}</td>
                                     <td>{formatCurrency(sale.total)}</td>
                                 </tr>

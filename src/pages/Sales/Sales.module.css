@@ -26,6 +26,32 @@
     font-size: 1rem;
 }
 
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1.5em;
+}
+
+.backButton {
+    min-width: 90px;
+    min-height: 38px;
+    padding: 0.5em 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5em;
+    background-color: #fff;
+    color: #334155;
+    font: inherit;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+    background-color: #f1f5f9;
+}
+
 .salesFilters {
     display: grid;
     grid-template-columns: 2fr 1fr;

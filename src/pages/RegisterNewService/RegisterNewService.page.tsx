@@ -12,7 +12,6 @@ import {
 
 export default function RegisterNewService() {
   const navigate = useNavigate();
-  // Clientes cadastrados (lidos do armazenamento compartilhado)
   const [clientes] = useState(() => getClientes());
   const [clienteId, setClienteId] = useState("");
   const [pet, setPet] = useState("");
@@ -23,25 +22,22 @@ export default function RegisterNewService() {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
-    // 1. Pega os agendamentos já salvos (ou lista vazia)
     const agendamentosSalvos = getAgendamentos();
 
-    // 2. Verifica se já existe um agendamento na mesma DATA e no mesmo HORÁRIO (Conflito!)
     const conflito = agendamentosSalvos.find(
       (item) =>
         item.data === data &&
         item.horario === horario &&
-        statusDoAgendamento(item) !== "Cancelado", // horário de serviço cancelado fica livre
+        statusDoAgendamento(item) !== "Cancelado",
     );
 
     if (conflito) {
       alert(
         "⚠️ Horário indisponível! Já existe um agendamento marcado para esta data e horário.",
       );
-      return; // Impede o cadastro
+      return;
     }
 
-    // 3. Cria o novo agendamento se estiver livre
     const clienteSelecionado = clientes.find((item) => item.id === clienteId);
 
     const novoAgendamento: Agendamento = {
@@ -55,11 +51,10 @@ export default function RegisterNewService() {
       status: "Agendado",
     };
 
-    // 4. Salva o novo agendamento
     addAgendamento(novoAgendamento);
 
     alert("Agendamento realizado com sucesso!");
-    navigate("/hub-pet/agenda"); // Leva para a Agenda, onde o serviço agendado aparece
+    navigate("/hub-pet/agenda");
   }
 
   return (

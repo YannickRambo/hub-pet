@@ -2,6 +2,7 @@ import Styles from "./RegisterNewSale.module.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { getClientes, getProdutos, type Produto } from "../../utils/storage";
+import { sales } from "../../utils/sales";
 
 interface SaleItem extends Produto {
     quantity: number;
@@ -85,7 +86,9 @@ export default function RegisterNewSale() {
             total
         };
 
-        console.log("Venda registrada:", sale);
+        sales.push(sale);
+
+        alert("Venda realizada com sucesso!");
     }
 
     return (

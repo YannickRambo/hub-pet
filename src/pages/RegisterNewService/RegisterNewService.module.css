@@ -20,6 +20,7 @@
 
 .heading h1 {
     margin: 0 0 0.5em;
+    color: #0f172a;
     font-size: 2em;
 }
 
@@ -131,10 +132,10 @@
 }
 
 .confirmButton {
-    background-color: #496344;
+    background-color: #78966B;
     color: #FFF;
 }
 
 .confirmButton:hover {
-    background-color: #78966B;
+    background-color: #496344;
 }

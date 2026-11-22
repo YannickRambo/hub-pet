@@ -89,6 +89,8 @@ export default function RegisterNewSale() {
         sales.push(sale);
 
         alert("Venda realizada com sucesso!");
+
+        navigate("/hub-pet/vendas");
     }
 
     return (

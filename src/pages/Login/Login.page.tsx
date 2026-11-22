@@ -2,6 +2,7 @@ import Styles from "./Login.module.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext.context";
+import { users } from "../../utils/users";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -21,13 +22,12 @@ export default function Login() {
       return;
     }
 
-    const USUARIO_PADRAO = "admin@hubpet.com";
-    const SENHA_PADRAO = "123456";
+    const searchedUser = users.find(user => user.email === email && user.password === password);
 
-    if (email === USUARIO_PADRAO && password === SENHA_PADRAO) {
+    if (searchedUser) {
       localStorage.setItem("@HubPet:userLogged", JSON.stringify({ email }));
 
-      login(email, password, "Atendente");
+      login(searchedUser.email, searchedUser.password, searchedUser.type);
 
       navigate("/hub-pet");
     } else {

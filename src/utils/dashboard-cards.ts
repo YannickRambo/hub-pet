@@ -15,6 +15,11 @@ export const dashboardCards = [
     to: "/hub-pet/agendamento",
   },
   {
+    title: "Ver Agenda",
+    description: "Acompanhe o status dos serviços",
+    to: "/hub-pet/agenda",
+  },
+  {
     title: "Cadastrar Venda",
     description: "Adicione uma nova venda",
     to: "/hub-pet/vendas/nova",

@@ -1,16 +1,23 @@
 import Styles from "./RegisterNewSale.module.css";
-import { products } from "../../utils/products";
 import { useState } from "react";
-import { clients } from "../../utils/clients";
+import { Link } from "react-router";
+import { getClientes, getProdutos, type Produto } from "../../utils/storage";
+
+interface SaleItem extends Produto {
+    quantity: number;
+}
 
 export default function RegisterNewSale() {
+    // Dados lidos do armazenamento compartilhado (clientes cadastrados e produtos do estoque)
+    const [clients] = useState(() => getClientes());
+    const [products] = useState(() => getProdutos());
     const [clientId, setClientId] = useState("");
     const [productId, setProductId] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [paymentMethod, setPaymentMethod] = useState("");
-    const [saleItems, setSaleItems] = useState([]);
+    const [saleItems, setSaleItems] = useState<SaleItem[]>([]);
 
-    const formatCurrency = (value) =>
+    const formatCurrency = (value: number) =>
         new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL"
@@ -23,7 +30,7 @@ export default function RegisterNewSale() {
 
     function handleAddProduct() {
         const product = products.find(
-            (item) => item.id === Number(productId)
+            (item) => String(item.id) === productId
         );
 
         if (!product || quantity < 1) return;
@@ -57,13 +64,13 @@ export default function RegisterNewSale() {
         setQuantity(1);
     }
 
-    function handleRemoveProduct(productId) {
+    function handleRemoveProduct(productId: number | string) {
         setSaleItems((currentItems) =>
             currentItems.filter((item) => item.id !== productId)
         );
     }
 
-    function handleSubmit(event) {
+    function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
 
         if (!clientId || saleItems.length === 0 || !paymentMethod) {
@@ -71,7 +78,7 @@ export default function RegisterNewSale() {
         }
 
         const sale = {
-            clientId: Number(clientId),
+            clientId,
             items: saleItems,
             paymentMethod,
             total
@@ -102,10 +109,20 @@ export default function RegisterNewSale() {
 
                             {clients.map((client) => (
                                 <option key={client.id} value={client.id}>
-                                    {client.name}
+                                    {client.nome}
                                 </option>
                             ))}
                         </select>
+
+                        {clients.length === 0 && (
+                            <small>
+                                Nenhum cliente cadastrado ainda.{" "}
+                                <Link to="/hub-pet/clientes/novo">
+                                    Cadastre um cliente e pet
+                                </Link>
+                                .
+                            </small>
+                        )}
                     </div>
                 </section>
 
@@ -172,7 +189,7 @@ export default function RegisterNewSale() {
                             <tbody>
                                 {saleItems.length === 0 ? (
                                     <tr>
-                                        <td colSpan="5">
+                                        <td colSpan={5}>
                                             Nenhum produto adicionado.
                                         </td>
                                     </tr>

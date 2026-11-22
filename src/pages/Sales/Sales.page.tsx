@@ -8,7 +8,7 @@ export default function Sales() {
     const [search, setSearch] = useState("");
     const [selectedPayment, setSelectedPayment] = useState("Todos");
 
-    const formatCurrency = (value) =>
+    const formatCurrency = (value: number) =>
         new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL"
@@ -85,7 +85,7 @@ export default function Sales() {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="5" className={Styles.emptyMessage}>
+                                <td colSpan={5} className={Styles.emptyMessage}>
                                     Nenhuma venda encontrada.
                                 </td>
                             </tr>

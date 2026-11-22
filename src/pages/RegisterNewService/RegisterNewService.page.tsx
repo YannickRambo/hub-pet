@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import Styles from "./RegisterNewService.module.css";
+import {
+  addAgendamento,
+  getAgendamentos,
+  getClientes,
+  getPetsDoCliente,
+  statusDoAgendamento,
+  type Agendamento,
+} from "../../utils/storage";
 
 export default function RegisterNewService() {
   const navigate = useNavigate();
-  const [cliente, setCliente] = useState("");
+  // Clientes cadastrados (lidos do armazenamento compartilhado)
+  const [clientes] = useState(() => getClientes());
+  const [clienteId, setClienteId] = useState("");
   const [pet, setPet] = useState("");
   const [servico, setServico] = useState("");
   const [data, setData] = useState("");
@@ -13,14 +23,15 @@ export default function RegisterNewService() {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
-    // 1. Pega os agendamentos já salvos no localStorage (ou lista vazia)
-    const agendamentosSalvos = JSON.parse(
-      localStorage.getItem("@HubPet:agendamentos") || "[]",
-    );
+    // 1. Pega os agendamentos já salvos (ou lista vazia)
+    const agendamentosSalvos = getAgendamentos();
 
     // 2. Verifica se já existe um agendamento na mesma DATA e no mesmo HORÁRIO (Conflito!)
     const conflito = agendamentosSalvos.find(
-      (item: any) => item.data === data && item.horario === horario,
+      (item) =>
+        item.data === data &&
+        item.horario === horario &&
+        statusDoAgendamento(item) !== "Cancelado", // horário de serviço cancelado fica livre
     );
 
     if (conflito) {
@@ -31,24 +42,24 @@ export default function RegisterNewService() {
     }
 
     // 3. Cria o novo agendamento se estiver livre
-    const novoAgendamento = {
+    const clienteSelecionado = clientes.find((item) => item.id === clienteId);
+
+    const novoAgendamento: Agendamento = {
       id: Date.now(),
-      cliente,
+      cliente: clienteSelecionado?.nome ?? "",
+      clienteId,
       pet,
       servico,
       data,
       horario,
+      status: "Agendado",
     };
 
-    // 4. Salva a nova lista no localStorage
-    const listaAtualizada = [...agendamentosSalvos, novoAgendamento];
-    localStorage.setItem(
-      "@HubPet:agendamentos",
-      JSON.stringify(listaAtualizada),
-    );
+    // 4. Salva o novo agendamento
+    addAgendamento(novoAgendamento);
 
     alert("Agendamento realizado com sucesso!");
-    navigate("/hub-pet"); // Redireciona para o painel
+    navigate("/hub-pet/agenda"); // Leva para a Agenda, onde o serviço agendado aparece
   }
 
   return (
@@ -66,15 +77,30 @@ export default function RegisterNewService() {
 
               <select
                 id="cliente"
-                value={cliente}
-                onChange={(event) => setCliente(event.target.value)}
+                value={clienteId}
+                onChange={(event) => {
+                  setClienteId(event.target.value);
+                  setPet("");
+                }}
                 required
               >
                 <option value="">Selecione um cliente</option>
-                <option value="João Silva">João Silva</option>
-                <option value="Maria Oliveira">Maria Oliveira</option>
-                <option value="Pedro Santos">Pedro Santos</option>
+                {clientes.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.nome}
+                  </option>
+                ))}
               </select>
+
+              {clientes.length === 0 && (
+                <small>
+                  Nenhum cliente cadastrado ainda.{" "}
+                  <Link to="/hub-pet/clientes/novo">
+                    Cadastre um cliente e pet
+                  </Link>
+                  .
+                </small>
+              )}
             </div>
 
             <div className={Styles.field}>
@@ -84,12 +110,17 @@ export default function RegisterNewService() {
                 id="pet"
                 value={pet}
                 onChange={(event) => setPet(event.target.value)}
+                disabled={!clienteId}
                 required
               >
-                <option value="">Selecione um pet</option>
-                <option value="Rex">Rex</option>
-                <option value="Mel">Mel</option>
-                <option value="Luna">Luna</option>
+                <option value="">
+                  {clienteId ? "Selecione um pet" : "Selecione um cliente primeiro"}
+                </option>
+                {getPetsDoCliente(clienteId).map((item) => (
+                  <option key={item.nome} value={item.nome}>
+                    {item.nome} ({item.especie})
+                  </option>
+                ))}
               </select>
             </div>
           </div>

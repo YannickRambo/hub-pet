@@ -1,13 +1,12 @@
 
 import Styles from "./ForgotPassword.module.css";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 import { useState } from "react";
 
 export default function ForgotPassword() {
-    const navigate = useNavigate();
     const [email, setEmail] = useState("");
 
-    function handleSubmit(event) {
+    function handleSubmit(event: React.FormEvent) {
         event.preventDefault();
 
         console.log("Solicitação de recuperação:", email);
@@ -47,14 +46,7 @@ export default function ForgotPassword() {
                         Recuperar senha
                     </button>
 
-                    <a
-                        href="/"
-                        onClick={() => {
-                            navigate("/");
-                        }}
-                    >
-                        Voltar ao login
-                    </a>
+                    <Link to="/">Voltar ao login</Link>
                 </div>
             </form>
         </main>

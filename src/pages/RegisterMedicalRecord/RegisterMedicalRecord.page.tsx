@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import Styles from "./RegisterMedicalRecord.module.css";
 
 const initialForm = {
@@ -11,7 +10,6 @@ const initialForm = {
 };
 
 export default function RegisterMedicalRecord() {
-  const navigate = useNavigate();
   const [form, setForm] = useState(initialForm);
 
   function handleChange(

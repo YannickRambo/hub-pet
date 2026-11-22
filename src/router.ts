@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter } from "react-router";
 import Login from "./pages/Login/Login.page";
 import Layout from "./pages/Layout/Layout.page";
 import Dashboard from "./pages/Dashboard/Dashboard.page";
@@ -10,8 +10,9 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.page";
 import ConsultClients from "./pages/ConsultClients/ConsultClients.page";
 import RegisterNewSale from "./pages/RegisterNewSale/RegisterNewSale.page";
 import Sales from "./pages/Sales/Sales.page";
+import Schedule from "./pages/Schedule/Schedule.page";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     index: true,
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/hub-pet/agendamento",
         Component: RegisterNewService,
+      },
+      {
+        path: "/hub-pet/agenda",
+        Component: Schedule,
       },
       {
         path: "/hub-pet/prontuario",

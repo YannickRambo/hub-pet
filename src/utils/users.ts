@@ -10,5 +10,10 @@ export const users: User[] = [
         email: "atendente@hubpet.com",
         password: "123456",
         type: "ATENDENTE"
+    },
+    {
+        email: "estoquista@hubpet.com",
+        password: "123456",
+        type: "ESTOQUISTA"
     }
 ]

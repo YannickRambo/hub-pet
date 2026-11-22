@@ -6,6 +6,8 @@ import { useAuth } from "../../context/AuthContext.context";
 export default function Layout() {
     const { user } = useAuth();
 
+    const navigationsUserLinks = navigationLinks.filter(link => link.roles.includes(user.type));
+
     return (
         <div className={Styles.layout}>
             <header className={Styles.layoutHeader}>
@@ -13,7 +15,7 @@ export default function Layout() {
             </header>
             <aside className={Styles.sidebar}>
                 <nav className={Styles.navigation}>
-                    {navigationLinks.map(link => (
+                    {navigationsUserLinks.map(link => (
                         <NavLink
                             key={link.to}
                             to={link.to}

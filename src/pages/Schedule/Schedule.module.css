@@ -1,0 +1,156 @@
+.schedule {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 2em;
+    color: #334155;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.heading h1 {
+    color: #496344;
+}
+
+.newButton {
+    padding: .75em 1.25em;
+    border-radius: 7px;
+    background-color: #78966B;
+    color: #FFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.newButton:hover {
+    background-color: #496344;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5em;
+    padding: 1.5em;
+    margin-bottom: 1em;
+    background-color: #FFF;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    min-width: 0;
+}
+
+.filterGroup label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.filterGroup input,
+.filterGroup select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: .75em;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background-color: #FFF;
+    color: #0f172a;
+    font-size: 1em;
+}
+
+.filterGroup input:focus,
+.filterGroup select:focus,
+.statusSelect:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+}
+
+.counter {
+    margin-bottom: 1em;
+    color: #64748b;
+    font-size: .9em;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #FFF;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.tableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tableContainer th,
+.tableContainer td {
+    padding: 1em 1.5em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tableContainer th {
+    background-color: #E8F0E4;
+    color: #496344;
+    font-weight: 600;
+}
+
+.tableContainer tbody tr:hover {
+    background-color: #f8faf7;
+}
+
+.emptyMessage {
+    text-align: center;
+    color: #64748b;
+    padding: 2em;
+}
+
+.statusSelect {
+    padding: .4em .6em;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: .9em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.statusAgendado {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.statusAndamento {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.statusConcluido {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.statusCancelado {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+@media (max-width: 800px) {
+    .filters {
+        grid-template-columns: 1fr;
+    }
+}

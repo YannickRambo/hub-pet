@@ -14,7 +14,7 @@ export default function RegisterNewUser() {
         type: ""
     });
 
-    function handleChange(event) {
+    function handleChange(event: any) {
         const { name, value } = event.target;
 
         setFormData((currentData) => ({
@@ -23,7 +23,7 @@ export default function RegisterNewUser() {
         }));
     }
 
-    function handleSubmit(event) {
+    function handleSubmit(event: any) {
         event.preventDefault();
 
         users.push(formData);   

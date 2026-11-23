@@ -11,7 +11,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const { user, login } = useAuth();
+  const { login } = useAuth();
 
   function handleLogin(event: React.FormEvent) {
     event.preventDefault();

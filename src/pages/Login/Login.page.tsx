@@ -11,7 +11,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const { login } = useAuth();
+  const { user, login } = useAuth();
 
   function handleLogin(event: React.FormEvent) {
     event.preventDefault();
@@ -25,10 +25,7 @@ export default function Login() {
     const searchedUser = users.find(user => user.email === email && user.password === password);
 
     if (searchedUser) {
-      localStorage.setItem("@HubPet:userLogged", JSON.stringify({ email }));
-
       login(searchedUser.email, searchedUser.password, searchedUser.type);
-
       navigate("/hub-pet");
     } else {
       setErro("Usuário ou senha incorretos. Tente novamente.");

@@ -11,4 +11,5 @@ export const navigationLinks = [
     { label: "Consultar Vendas", to: "/hub-pet/vendas", roles: [Role.ADMIN, Role.ESTOQUISTA] },
     { label: "Estoque", to: "/hub-pet/estoque", roles: [Role.ADMIN, Role.ESTOQUISTA] },
     { label: "Prontuário", to: "/hub-pet/prontuario", roles: [Role.ADMIN, Role.VETERINARIO] },
+    { label: "Cadastrar Usuários", to: "/hub-pet/usuarios/novo", roles: [Role.ADMIN] },
 ];

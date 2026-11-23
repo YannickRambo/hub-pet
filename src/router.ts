@@ -11,6 +11,7 @@ import ConsultClients from "./pages/ConsultClients/ConsultClients.page";
 import RegisterNewSale from "./pages/RegisterNewSale/RegisterNewSale.page";
 import Sales from "./pages/Sales/Sales.page";
 import Schedule from "./pages/Schedule/Schedule.page";
+import RegisterNewUser from "./pages/RegisterNewUser/RegisterNewUser.page";
 
 export const router = createHashRouter([
   {
@@ -61,6 +62,10 @@ export const router = createHashRouter([
       {
         path: "/hub-pet/vendas",
         Component: Sales
+      },
+      {
+        path: "/hub-pet/usuarios/novo",
+        Component: RegisterNewUser
       }
     ],
   },

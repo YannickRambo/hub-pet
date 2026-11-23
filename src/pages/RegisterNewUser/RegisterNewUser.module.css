@@ -1,0 +1,108 @@
+.registerUser {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em 1em;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    padding-top: 8em;
+}
+
+.pageHeading {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.pageHeading h1 {
+    margin: 0 0 .5em;
+    color: #0f172a;
+    font-size: 2em;
+}
+
+.registerUserForm {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    gap: 1em;
+    border: 1px solid #e2e8f0;
+    border-radius: 1em;
+    background-color: #FFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.registerUserInput {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.registerUserInput label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.registerUserInput input,
+.registerUserInput select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: .75em;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background-color: #FFF;
+    color: #0f172a;
+    font-size: 1em;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.registerUserInput input:focus,
+.registerUserInput select:focus {
+    outline: none;
+    border-color: #78966B;
+    box-shadow: 0 0 0 3px rgba(120, 150, 107, .2);
+}
+
+.registerUserButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75em;
+    margin-top: .5em;
+}
+
+.registerUserButton button {
+    width: 100%;
+    padding: .75em 1.25em;
+    border: 1px solid transparent;
+    border-radius: .5em;
+    background-color: #78966B;
+    color: #FFF;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.registerUserButton button:hover {
+    background-color: #496344;
+}
+
+.registerUserButton a {
+    color: #496344;
+    text-decoration: none;
+}
+
+.registerUserButton a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .registerUserForm {
+        padding: 2em 1.5em;
+    }
+}

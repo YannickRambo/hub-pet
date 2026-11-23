@@ -49,4 +49,10 @@ export const dashboardCards = [
     to: "/hub-pet/prontuario",
     roles: [Role.ADMIN, Role.VETERINARIO]
   },
+  {
+    title: "Cadastrar Usuário",
+    description: "Adicione um novo usuário",
+    to: "/hub-pet/usuarios/novo",
+    roles: [Role.ADMIN]
+  },
 ];

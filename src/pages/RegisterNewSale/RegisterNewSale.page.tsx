@@ -1,8 +1,12 @@
 import Styles from "./RegisterNewSale.module.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { getClientes, getProdutos, type Produto } from "../../utils/storage";
-import { sales } from "../../utils/sales";
+import {
+    addVenda,
+    getClientes,
+    getProdutos,
+    type Produto
+} from "../../utils/storage";
 
 interface SaleItem extends Produto {
     quantity: number;
@@ -72,26 +76,66 @@ export default function RegisterNewSale() {
         );
     }
 
-    function handleSubmit(event: React.FormEvent) {
-        event.preventDefault();
+    
+function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
 
-        if (!clientId || saleItems.length === 0 || !paymentMethod) {
+    if (!clientId || saleItems.length === 0 || !paymentMethod) {
+        return;
+    }
+
+    // Busca o estoque atualizado no localStorage
+    const currentProducts = getProdutos();
+
+    // Verifica se há quantidade suficiente para todos os itens
+    for (const item of saleItems) {
+        const product = currentProducts.find(
+            (product) => product.id === item.id
+        );
+
+        if (!product || product.quantity < item.quantity) {
+            alert(
+                `Estoque insuficiente para o produto ${item.name}. ` +
+                `Disponível: ${product?.quantity ?? 0} unidade(s).`
+            );
             return;
         }
-
-        const sale = {
-            clientId,
-            items: saleItems,
-            paymentMethod,
-            total
-        };
-
-        sales.push(sale);
-
-        alert("Venda realizada com sucesso!");
-
-        navigate("/hub-pet/vendas");
     }
+
+    // Calcula o novo estoque
+    const updatedProducts = currentProducts.map((product) => {
+        const soldItem = saleItems.find(
+            (item) => item.id === product.id
+        );
+
+        if (!soldItem) return product;
+
+        return {
+            ...product,
+            quantity: product.quantity - soldItem.quantity
+        };
+    });
+
+    // Salva o estoque atualizado
+    localStorage.setItem(
+        "@HubPet:inventory",
+        JSON.stringify(updatedProducts)
+    );
+
+    const sale = {
+        clientId,
+        items: saleItems,
+        paymentMethod,
+        total
+    };
+
+    addVenda(sale);
+
+    alert("Venda realizada com sucesso!");
+
+    navigate("/hub-pet/vendas");
+}
+
 
     return (
         <main className={Styles.registerSale}>
@@ -278,7 +322,7 @@ export default function RegisterNewSale() {
                             setPaymentMethod("");
                         }}
                     >
-                        Limpar venda
+                        Limpar
                     </button>
 
                     <button

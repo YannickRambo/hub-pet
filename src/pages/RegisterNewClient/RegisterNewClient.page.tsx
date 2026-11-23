@@ -152,7 +152,7 @@ export default function RegisterNewClient() {
                   <option value="">Selecione a espécie</option>
                   <option value="Cachorro">Cachorro</option>
                   <option value="Gato">Gato</option>
-                  <option value="Ave">Ave</option>
+                  <option value="Passarinho">Passarinho</option>
                   <option value="Roedor">Roedor</option>
                   <option value="Outro">Outro</option>
                 </select>

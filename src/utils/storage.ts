@@ -1,4 +1,5 @@
 import { products as produtosIniciais } from "./products";
+import type { Sale } from "../types/Sale";
 
 // Chaves usadas no localStorage (as mesmas que as telas já utilizavam)
 export const STORAGE_KEYS = {
@@ -6,6 +7,7 @@ export const STORAGE_KEYS = {
   agendamentos: "@HubPet:agendamentos",
   prontuarios: "@HubPet:prontuarios",
   inventory: "@HubPet:inventory",
+  vendas: "@HubPet:vendas",
 } as const;
 
 export interface Cadastro {
@@ -125,6 +127,25 @@ export function addAgendamento(agendamento: Agendamento): void {
     STORAGE_KEYS.agendamentos,
     JSON.stringify([...getAgendamentos(), agendamento]),
   );
+}
+
+// Vendas registradas (ficam salvas no navegador, como clientes e agendamentos)
+export function getVendas(): Sale[] {
+  return lerLista<Sale>(STORAGE_KEYS.vendas);
+}
+
+// Salva a venda já com o próximo número sequencial e devolve a venda salva
+export function addVenda(venda: Omit<Sale, "id">): Sale {
+  const vendas = getVendas();
+  const proximoId = vendas.reduce((maior, item) => Math.max(maior, item.id), 0) + 1;
+  const novaVenda: Sale = { ...venda, id: proximoId };
+
+  localStorage.setItem(
+    STORAGE_KEYS.vendas,
+    JSON.stringify([...vendas, novaVenda]),
+  );
+
+  return novaVenda;
 }
 
 // Produtos do estoque (os cadastrados na tela de Estoque); usa os padrões se ainda não houver nada salvo

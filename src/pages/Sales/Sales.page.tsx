@@ -1,12 +1,22 @@
 
 import Styles from "./Sales.module.css";
 import { useState } from "react";
-import { sales } from "../../utils/sales";
 import { paymentMethods } from "../../utils/paymentMethods";
 import { useNavigate } from "react-router";
+import { getClientes, getVendas } from "../../utils/storage";
+
+// Remove acentos e ignora maiúsculas/minúsculas para a pesquisa
+const normalize = (text: string) =>
+    text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
 
 export default function Sales() {
     const [search, setSearch] = useState("");
+    const [clients] = useState(() => getClientes());
+    const [sales] = useState(() => getVendas());
     const [selectedPayment, setSelectedPayment] = useState("Todos");
     const navigate = useNavigate();
 
@@ -16,10 +26,17 @@ export default function Sales() {
             currency: "BRL"
         }).format(value);
 
+    // A venda guarda só o id do cliente (CPF); aqui buscamos o nome no cadastro
+    const getClientName = (clientId: string) =>
+        clients.find((client) => client.id === clientId)?.nome ?? clientId;
+
+    const term = normalize(search);
+
     const filteredSales = sales.filter((sale) => {
         const matchesSearch =
-            sale.clientId.toLowerCase().includes(search.toLowerCase()) ||
-            sale.clientId.includes(search);
+            !term ||
+            normalize(getClientName(sale.clientId)).includes(term) ||
+            normalize(sale.clientId).includes(term);
 
         const matchesPayment =
             selectedPayment === "Todos" ||
@@ -42,7 +59,7 @@ export default function Sales() {
                     <input
                         type="text"
                         id="search"
-                        placeholder="Nome do cliente ou número da venda..."
+                        placeholder="Nome ou CPF do cliente..."
                         value={search}
                         onChange={(event) => setSearch(event.target.value)}
                     />
@@ -71,6 +88,7 @@ export default function Sales() {
                     <thead>
                         <tr>
                             <th>Nº Venda</th>
+                            <th>Cliente</th>
                             <th>Itens</th>
                             <th>Pagamento</th>
                             <th>Valor Total</th>
@@ -80,8 +98,9 @@ export default function Sales() {
                     <tbody>
                         {filteredSales.length > 0 ? (
                             filteredSales.map((sale) => (
-                                <tr key={sale.clientId}>
-                                    <td>#{sale.clientId.padStart(4, "0")}</td>
+                                <tr key={sale.id}>
+                                    <td>#{String(sale.id).padStart(4, "0")}</td>
+                                    <td>{getClientName(sale.clientId)}</td>
                                     <td>{sale.items.map(item => item.name).toString()}</td>
                                     <td>{sale.paymentMethod}</td>
                                     <td>{formatCurrency(sale.total)}</td>

@@ -10,6 +10,23 @@ import {
   type Agendamento,
 } from "../../utils/storage";
 
+const HORARIOS = [
+  "09:00",
+  "10:00",
+  "11:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+];
+
+// Retorna true quando a data/horário escolhidos já ficaram no passado
+function horarioJaPassou(data: string, horario: string): boolean {
+  if (!data || !horario) return false;
+  return new Date(`${data}T${horario}:00`).getTime() <= Date.now();
+}
+
 export default function RegisterNewService() {
   const navigate = useNavigate();
   const [clientes] = useState(() => getClientes());
@@ -21,6 +38,14 @@ export default function RegisterNewService() {
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+
+    if (horarioJaPassou(data, horario)) {
+      alert(
+        "⚠️ Esse horário já passou. Escolha um horário a partir de agora.",
+      );
+      setHorario("");
+      return;
+    }
 
     const agendamentosSalvos = getAgendamentos();
 
@@ -151,7 +176,11 @@ export default function RegisterNewService() {
                   id="data"
                   type="date"
                   value={data}
-                  onChange={(event) => setData(event.target.value)}
+                  onChange={(event) => {
+                    const novaData = event.target.value;
+                    setData(novaData);
+                    if (horarioJaPassou(novaData, horario)) setHorario("");
+                  }}
                   min={new Date().toLocaleDateString("en-CA")}
                   required
                 />
@@ -167,14 +196,16 @@ export default function RegisterNewService() {
                   required
                 >
                   <option value="">Selecione um horário</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
+                  {HORARIOS.map((hora) => {
+                    const passou = horarioJaPassou(data, hora);
+
+                    return (
+                      <option key={hora} value={hora} disabled={passou}>
+                        {hora}
+                        {passou ? " (indisponível)" : ""}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
             </div>
